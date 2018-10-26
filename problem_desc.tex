@@ -1,0 +1,13 @@
+In this paper we discuss the problem of finding the maximum sum rate of a group of users in the context of a wireless MU-MIMO downlink utilizing maximum ration transmission beamforming (MRTBF). In the scenario considered, it is assumed that groups of $l$ users are chosen from a set of $n$ candidate users. Therefore, there are a total of $\binom{n}{l}$ different combinations of user groups. We can express the sum rate for each of these groups in terms of the sum of the Shannon capacity for each of the users in the group. Therefore, the maximum sum rate can be expressed as
+
+\begin{equation}\label{eq:c_max}
+    \begin{aligned}
+    C_{max} &= \max_{i\in\binom{n}{l}}\bigg\lbrace \sum_{k=1}^l\log_2\bigg(1+\frac{P\Vert\underline{h}^{(i)}_k \Vert^2}{\sum_{j\neq k}^lP\vert \underline{h}^{(i)H}_k \underline{h}^{(i)}_j\vert^2 + \sigma_n^2}\bigg)\bigg\rbrace \\
+    &= \max_{i\in\binom{n}{l}}\lbrace C_i\rbrace \ .
+    \end{aligned}
+\end{equation}
+In this expression the second term in the logarithm is the SINR for the case of MRTBF under the assumption of equal power allocation, where $P$ is the total available transmit power, and $N$ is the number of transmit antennas. In reality, the expression in the numerator is scaled by $\frac{P}{N\sigma_h^2}$, where $\sigma_h^2$ is the variance of each element in the channel vector.  The variable $\underline{h}_k^{(i)}$ is the $k^{th}$ channel vector of the $i^{th}$ user group. $\underline{h}_k^{(i)}$ is a $N\times 1$ vector. Each of the terms of the vector experience small-scale Rayleigh fading, therefore they are modelled as circularly symmetric normal random variables $\sim\mathcal{N}_c(0,\frac{1}{N})$. Therefore, the factors of $N$ cancel, leaving just $P$. This scaling factor gives us a SNR value of $\frac{P}{\sigma_n^2}$, where it is assumed that the channel experiences AWGN $\sim\mathcal{N}_C(0,\sigma_n^2)$. Due to the fading nature of the channel vectors, the problem at hand is statistical in nature.
+
+The objective of this paper is to develop an expression for the probability distribution of the maximal sum rate, $C_{max}$. 
+In the case that $C_i$ is iid $\forall  i = 1\ldots\binom{n}{l}$, then this maximization problem is relatively simple. However, this is not the case. The sum rates for various groups of users is dependent, since there are often users common to these groups. Thus, we must develop a method for finding an expression for the distribution that incorporates correlation between groups.
+

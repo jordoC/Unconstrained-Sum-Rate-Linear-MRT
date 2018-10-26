@@ -1,0 +1,37 @@
+Tong provides a method of finding the ordered statistics of a multi-variant normal distribution in Chapter 6 of \cite{Tong1990} under the assumption of constant mean, variance and correlation. Applied to this context, this implies the following conditions hold:
+\begin{equation}
+    \begin{aligned}
+        \mu = \text{E}\lbrace C_i \rbrace \ \forall i = 1\ldots \binom{n}{l}
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+        \sigma^2 = \text{E}\lbrace C_i^2 \rbrace \ \forall i = 1\ldots \binom{n}{l}
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+        \rho_{corr} &= \frac{\text{Cov}(C_i,C_j)}{\sqrt{\text{Var}(C_i)\text{Var}(C_j)}}\ \forall i\neq j = 1\ldots\binom{n}{l} \\
+        &= \frac{\text{Cov}(C_i,C_j)}{\sigma^2}\ .
+    \end{aligned}
+\end{equation}
+It is clear that, in reality, this is not the case: each $C_i$ will have its own mean, and variance; the correlation between various groups will also be different depending on the number of users the groups have in common. We will address the implications of these approximations later in the paper; for the sake of argument, it will be assumed such approximations are reasonable to make for the time being.
+
+Asserting the argument of constant mean, variance, and correlation, the expression, as given in \cite{Tong1990}, for the respective PDF and CDF of $C_{max}$ are:
+
+ 
+ \begin{equation}\label{eq:pdf_max}
+    \begin{aligned}
+        f_{Cmax}(x) &= \int_{-\infty}^{\infty}\frac{1}{\sigma\sqrt{1-\rho_{corr}}}f_{\binom{n}{l}}\bigg(\frac{\frac{x-\mu}{\sigma}+\sqrt{\rho_{corr}}z}{\sqrt{1-\rho_{corr}}}\bigg)\phi(z)dz \\
+        F_{Cmax}(x) &= \int_{-\infty}^{\infty}F_{\binom{n}{l}}\bigg(\frac{\frac{x-\mu}{\sigma}+\sqrt{\rho_{corr}}z}{\sqrt{1-\rho_{corr}}}\bigg)\phi(z)dz \\
+        Where:\\
+        &\phi(z)\ \text{is the PDF for}\ Z\sim\mathcal{N}(0,1)\\
+        &\Phi(z)\ \text{is the CDF for}\ Z\sim\mathcal{N}(0,1)\\
+        &f_{\binom{n}{l}}(z) = \binom{n}{l}(\Phi(z))^{\binom{n}{l}-1}\phi(z)\\
+        &F_{\binom{n}{l}}(z) = \Phi(z)^{\binom{n}{l}} \ .
+    \end{aligned}
+\end{equation}
+
+As previously discussed, these PDF and CDF expressions hinge on the assumption of constant mean, variance and correlation. Approximation of these values and subsequent justification is the next topic of discussion.

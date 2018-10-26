@@ -1,0 +1,9 @@
+Developing a statistical description of the maximum sum rate probability presents a challenge for two reasons. Firstly, the probability distribution of the sum rate is a relatively complicated function of random channel vectors. Secondly, the correlation between the random variables associated with these distributions are correlated. Therefore, devising an approach to finding a statistical description of the maximum of these correlated random variables is challenging. Therefore, we will simplify the scenario by approximating the distribution of sum rate as Gaussian. By inspection of Eq. \ref{eq:c_max}, an analytic closed form description of such a PDF is  somewhat unrealistic in terms of practical application. Thus an approximation of this distribution will be pursued.
+
+Observe that $C_i$ is, in fact, a sum of random variables representing Shannon capacity. By the Central Limit Theorem (CLT), we will assert that 
+\begin{equation}
+    C_i\sim\mathcal{N}_C(\mu_i,\sigma_i^2). 
+\end{equation}
+This expression holds for sufficiently large values of $l$, since the CLT states that the sum of PDFs should tend to a normal distribution as the number of terms in the sum becomes sufficiently large.
+
+By asserting this argument, the problem now becomes a question of finding the probability distribution for the maximum of a collection of Gaussian random variables, each with its ow mean and variance. The correlation between each of these Gaussian variables is not necessarily zero, in general.
